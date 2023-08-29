@@ -11,7 +11,7 @@ require('./db/config')();
 
 // Cors Setup
 const cors = require('cors');
-app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
+app.use(cors());
 
 // Routes
 app.use(require('./routes/AuthenticationRoutes'));
