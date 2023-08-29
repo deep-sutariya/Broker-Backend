@@ -26,12 +26,12 @@ router.post("/addcard", async (req, res) => {
 
 router.post("/updatecard", async (req, res) => {
     const { userid, cardid, values } = req.body;
-    console.log("Values--->", values);
     
     const updated = await UserInfo.findOneAndUpdate({ _id: userid, 'cards._id': cardid },
+        {$set: { 'cards.$': values }},
         { returnOriginal: false }
     );
-
+    
     if (updated && Object.keys(updated).length > 0) {
         res.status(200).json({ user: updated, message: `Card Updated Successfully!` });
     }
