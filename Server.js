@@ -18,8 +18,8 @@ app.use(require('./routes/AuthenticationRoutes'));
 app.use(require('./routes/CardRoutes'));
 
 require('dotenv').config()
-const PORT = 3000;
+const PORT = 5000;
 
 app.listen(PORT,()=>{
-    // console.log("Listening on " + PORT);
+    console.log("Listening on " + PORT);
 })
