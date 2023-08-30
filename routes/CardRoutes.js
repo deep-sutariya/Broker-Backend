@@ -26,7 +26,6 @@ router.post("/addcard", async (req, res) => {
 
 router.post("/updatecard", async (req, res) => {
     const { userid, cardid, values } = req.body;
-    
     const updated = await UserInfo.findOneAndUpdate({ _id: userid, 'cards._id': cardid },
         {$set: { 'cards.$': values }},
         { returnOriginal: false }
