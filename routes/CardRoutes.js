@@ -6,7 +6,6 @@ const autoIncrementNumberId = require('../middleware/AutoIncrementId');
 
 router.post("/addcard", autoIncrementNumberId, async (req, res) => {
     const { user_id, email, values } = req.body;
-    console.log(values);
     try {
         const user = await UserInfo.findById(user_id);
         if (user) {
@@ -18,7 +17,7 @@ router.post("/addcard", autoIncrementNumberId, async (req, res) => {
                 }
             });
             if (response)
-                res.status(200).json({ message: `Card Added Successfully!` });
+                res.status(200).json({ message: `Card Added Successfully!`, counter: values.counter });
         }
     }
     catch (e) {
